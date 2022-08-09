@@ -2,99 +2,31 @@ const express = require('express');
 const abc = require('../introduction/intro')
 const router = express.Router();
 
-router.get('/GET/movies', function (req, res) {
-       const movies = ["Tenet","The Btamna Begins","Pather Pachali","Charlie The Choclate Factory"];
-         res.send(movies);
-});
 
-// router.get('/GET/movies/:indexNumber', function (req, res){
-//       const movies = ["Tenet","The Btamna Begins","Pather Pachali","Charlie The Choclate Factory"];
-//       const index = req.params.indexNumber;
-//       console.log(movies[index]);
-//       res.send(movies[index]);
+// router.get("/sol1", function(req, res){
+//     const numbers = [1,2,3,4,5,7,8,9];
+// let sum = 0;
+// let n = numbers.length +1 ;
+// let naturalsum = n*(n+1)/2;
+// for (i=0;i<numbers.length;i++){
+//  sum += numbers[i];
+// }
+// let missingNumber =  naturalsum - sum;
+// res.send(`{data : ${missingNumber}}`);
+// console.log(`{data : ${missingNumber} }`);
 // })
-// router.get('/GET/movies/:indexNumber', function (req, res){
-//     const movies = ["Tenet","The Btamna Begins","Pather Pachali","Charlie The Choclate Factory"];
-//     const index = req.params.indexNumber;
-//        if(index<4){
-//         res.send(movies[index]);
-//         console.log(movies[index]);
-//        }else{
-//         res.send("use a valid index");
-//         console.log("use a valid index");
-//        }
-// });
-router.get('/GET/movies/:indexNumber', function (req, res){
-        const movies = ["Tenet","The Btamna Begins","Pather Pachali","Charlie The Choclate Factory"];
-        const index = req.params.indexNumber;
-        if(index<0 || index<films.length){
-            res.send(films);
-        }else{
-    res.send("No movie exists with this id");
-        }
-    });
-
-router.get('/GET/films', function (req, res){
-       const films = [{
-        "id": 1,
-        "name": "The Shining"
-       }, {
-        "id": 2,
-        "name": "Incendies"
-       }, {
-        "id": 3,
-        "name": "Rang de Basanti"
-       }, {
-        "id": 4,
-       "name": "Finding Nemo"
-       }]
-       res.send(films);
-});
-// router.get('/GET/films/:filmid', function (req, res){
-//     const films = [{
-//      "id": 1,
-//      "name": "The Shining"
-//     }, {
-//      "id": 2,
-//      "name": "Incendies"
-//     }, {
-//      "id": 3,
-//      "name": "Rang de Basanti"
-//     }, {
-//      "id": 4,
-//     "name": "Finding Nemo"
-//     }];
-//     const index1 = req.params.filmid;
-//     if(index1<5 && index1>0 ){
-//     res.send(films[index1-1]);
-//     console.log(films[index1-1]);
-//     }else{
-//         res.send("No movie exists with this id");
-//         console.log("No movie exists witht this id");
-//     }
-// });
-router.get('/GET/films/:filmid', function (req, res){
-    const films = [{
-     "id": 1,
-     "name": "The Shining"
-    }, {
-     "id": 2,
-     "name": "Incendies"
-    }, {
-     "id": 3,
-     "name": "Rang de Basanti"
-    }, {
-     "id": 4,
-    "name": "Finding Nemo"
-    }];
-    const index = req.params.filmid;
-    for(i=0;i<films.length;i++){
-        let film = films[i];
-        if(film.id==index){
-           return  res.send(film);
-        }
+router.get("/sol2" , function(req,res){
+    let arr = [33, 34, 35, 37, 38];
+    let n = arr.length +1 ;
+    let sum = 0;
+    for(i=0;i<arr.length;i++){
+        let firstnum = arr[0];
+        let lastnum = arr[arr.length-1];
+        sumofnumbers = n*((firstnum + lastnum)/2);
+           sum += arr[i];
     }
-    res.send("No movie exists with this id");
-});
-
+    let missingNumber = sumofnumbers - sum ;
+    res.send(`{data : ${missingNumber}}`);
+    console.log(`{data : ${missingNumber}}`);
+})
 module.exports = router;
