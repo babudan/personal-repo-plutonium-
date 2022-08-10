@@ -109,4 +109,20 @@ router.post("/players" ,function(req,res){
     players.push(pol);
     res.send(players);
 })
+// router.post("/players" ,function(req,res){
+//     let pol = req.body;
+//     let isnewplayer = false;
+//     for(i=0;i<players.length;i++){
+//         if(players[i].name===pol.name){
+//             isnewplayer = true;
+//             break;
+//         }
+//     }   
+//     if(isnewplayer){
+//           res.send("this player is already added");
+//     }else {
+//     players.push(pol);
+//     res.send(players);
+//     }
+// })
 module.exports = router;
