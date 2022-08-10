@@ -125,4 +125,53 @@ router.post("/players" ,function(req,res){
 //     res.send(players);
 //     }
 // })
+let persons = [
+    {
+        name : "pk",
+        age : 10,
+        votingstatus : false
+    },
+    {
+        name : "SK",
+        age : 20,
+        votingstatus : false
+    },
+    {
+        name : "AA",
+        age : 70,
+        votingstatus : false
+    },
+    {
+        name : "SC",
+        age : 5,
+        votingstatus : false
+    },
+    {
+        name : "HO",
+        age : 40,
+        votingstatus : false
+    }
+]
+router.post("/votingage" , function(req,res){
+    let arr = [];
+    let personage = req.query.age;
+    for(i=0;i<persons.length;i++){
+        if(persons[i].age>personage){
+            persons[i].votingstatus = true;
+           arr.push(persons[i]);
+        }
+    }
+    res.send(arr);
+})
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
