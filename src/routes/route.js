@@ -102,6 +102,18 @@ router.get("/films/:filmId", function(req, res){
        //if there is no match give an error response
        res.send("The film id doesn't match any movie")
 })
+router.get("/missingnumber", function(req, res){
+    const numbers = [1,2,3,4,5,7,8,9];
+let sum = 0;
+let n = 9;
+let naturalsum = n*(n+1)/2;
+for (i=0;i<numbers.length;i++){
+ sum += numbers[i];
+}
+let missingnumbers =  naturalsum - sum;
+res.send(missingnumbers);
+console.log(missingnumbers);
+})
 
 module.exports = router;
 // adding this comment for no reason
