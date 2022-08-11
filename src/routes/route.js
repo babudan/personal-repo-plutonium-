@@ -99,16 +99,18 @@ let players = [
        ]
     }
 ]
-router.post("/players" ,function(req,res){
-    let pol = req.body;
-    for(i=0; i<players.length; i++){
-        if(players[i].name===pol.name){
-            return res.send("this player is already exist");
-        }
-    }
-    players.push(pol);
-    res.send(players);
-})
+
+
+// router.post("/players" ,function(req,res){
+//     let pol = req.body;
+//     for(i=0; i<players.length; i++){
+//         if(players[i].name===pol.name){
+//             return res.send("this player is already exist");
+//         }
+//     }
+//     players.push(pol);
+//     res.send(players);
+// })
 // router.post("/players" ,function(req,res){
 //     let pol = req.body;
 //     let isnewplayer = false;
@@ -152,25 +154,22 @@ let persons = [
         votingstatus : false
     }
 ]
+// router.post("/votingage" , function(req,res){
+//     let arr = [];
+//     let personage = req.query.age;
+//     for(i=0;i<persons.length;i++){
+//         if(persons[i].age>personage){
+//             persons[i].votingstatus = true;
+//            arr.push(persons[i]);
+//         }
+//     }
+//     res.send(arr);
+// })
 router.post("/votingage" , function(req,res){
-    let arr = [];
-    let personage = req.query.age;
-    for(i=0;i<persons.length;i++){
-        if(persons[i].age>personage){
-            persons[i].votingstatus = true;
-           arr.push(persons[i]);
-        }
-    }
-    res.send(arr);
+ let personage = req.query.age;
+ const a =  persons.filter(x=>x.age>personage).filter(b=>b.votingstatus=true);
+   res.send(a);
 })
-
-
-
-
-
-
-
-
 
 
 
