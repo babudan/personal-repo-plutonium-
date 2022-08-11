@@ -165,11 +165,60 @@ let persons = [
 //     }
 //     res.send(arr);
 // })
-router.post("/votingage" , function(req,res){
- let personage = req.query.age;
- const a =  persons.filter(x=>x.age>personage).filter(b=>b.votingstatus=true);
-   res.send(a);
-})
+// router.post("/votingage" , function(req,res){
+//  let personage = req.query.age;
+//  const a =  persons.filter(x=>x.age>personage).filter(b=>b.votingstatus=true);
+//    res.send(a);
+// })
+
+let booking = [
+    {
+        bookingNumber : 1,
+         sportId : "123",
+         centerId : "123",
+        type : "private",
+        slot : 16286598000000,
+        bookedOn : "31/08/2021",
+        bookedFor : "01/09/2021",
+       },
+       {
+        bookingNumber : 2,
+         sportId : "456",
+         centerId : "456",
+        type : "private",
+        slot : 16286598000000,
+        bookedOn : "31/08/2021",
+        bookedFor : "01/09/2021",
+       },
+       {
+        bookingNumber : 3,
+         sportId : "789",
+         centerId : "789",
+        type : "private",
+        slot : 16286598000000,
+        bookedOn : "31/08/2021",
+        bookedFor : "01/09/2021",
+       }
+       ]
+       router.post("/players/:playerName/bookings/:bookingid" , function(req,res){
+             var a = req.params.playerName;
+             var b = req.params.bookingid;
+             var g = b.toString();
+             var c = req.body;
+             for(i=0;i<booking.length;i++){
+                if(a && b===booking[i].sportId){
+                    res.send("booking was already processed");
+                }else if(g.length!==3){
+                    res.send("player is not found");
+                }
+             }
+             booking.push(c);
+             res.send(booking);
+       })
+
+
+
+
 
 
 
