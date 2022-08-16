@@ -8,11 +8,15 @@ const bookSchema = new mongoose.Schema( {
     isPublished: Boolean,
     prices: {
         indianPrice: String,
-        europePrice: String,
+        europePrice: String
     },
-    sales: {type: Number, default: 10}
+    year : {
+        type : Number,
+        default : 2021
+    },
+    totalPages : Number,
+    stockAvailable : Boolean
 }, { timestamps: true });
-
 
 module.exports = mongoose.model('Book', bookSchema) //users
 
