@@ -11,9 +11,6 @@ const UserController= require("../controllers/userController")
 
 // router.get("/getUsersData", UserController.getUsersData)
 
-
-
-
 router.post("/createBook", UserController.createNewBook);
 router.get("/getBook", UserController.getAllBook);
 

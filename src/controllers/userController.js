@@ -16,14 +16,14 @@ const createNewBook= async function (req, res) {
         let newbooks = await UserModel.create(data);
         res.send({msg: newbooks});
     }
-
+    module.exports.createNewBook = createNewBook;
     const getAllBook = async function (req, res) {
          let allbooks= await UserModel.find();
          res.send({msg: allbooks});
      }
 
      module.exports.getAllBook = getAllBook;
-    module.exports.createNewBook = createNewBook;
+
     
 
 
