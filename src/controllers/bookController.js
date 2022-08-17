@@ -1,14 +1,34 @@
 const { count } = require("console")
 const BookModel= require("../models/bookModel")
-
+const UserModel= require("../models/userModel")
 const createBook= async function (req, res) {
     let data= req.body
 
     let savedData= await BookModel.create(data)
     res.send({msg: savedData})
 }
+const listBooks= async function (req, res) {
+      let findauthor = await UserModel.find({author_name : "Chetan Bhagat"});
+      let findbook = await BookModel.find({author_id : {$eq : findauthor[0].author_id}});
+    res.send({ msg : findbook});
+}
 
-const getBooksData= async function (req, res) {
+const updatebook = async function (req,res) {
+    let bookprice = await BookModel.findOneAndUpdate({ name : "Two states"},{$set : { price : 100} }, {new : true});
+    let updateprice = bookprice.price;
+    let authorupdate = await UserModel.find({author_id : {$eq : bookprice.author_id}}).select({author_name:1,_id:0});
+    res.send({authorupdate ,updateprice});
+}
+
+const bookrange = async function(req,res) {
+    let range = await BookModel.find({price : {$gte:50,$lte:100}});
+     let a = range.map(x=>x.author_id);
+     let newrange = await UserModel.find({author_id : a}).select({author_name:1, _id:0});
+    res.send(newrange);
+}
+
+
+// const getBooksData= async function (req, res) {
 
     // let allBooks= await BookModel.find( ).count() // COUNT
 
@@ -65,21 +85,28 @@ const getBooksData= async function (req, res) {
     
     // ASYNC AWAIT
     
-    let a= 2+4
-    a= a + 10
-    console.log(a)
-    let allBooks= await BookModel.find( )  //normally this is an asynchronous call..but await makes it synchronous
+    // let a= 2+4
+    // a= a + 10
+    // console.log(a)
+    // let allBooks= await BookModel.find( )  //normally this is an asynchronous call..but await makes it synchronous
 
 
     // WHEN AWAIT IS USED: - database + axios
     //  AWAIT can not be used inside forEach , map and many of the array functions..BE CAREFUL
-    console.log(allBooks)
-    let b = 14
-    b= b+ 10
-    console.log(b)
-    res.send({msg: allBooks})
-}
+//     console.log(allBooks)
+//     let b = 14
+//     b= b+ 10
+//     console.log(b)
+//     res.send({msg: allBooks})
+// }
 
 
-module.exports.createBook= createBook
-module.exports.getBooksData= getBooksData
+module.exports.createBook= createBook;
+module.exports.listBooks=listBooks;
+module.exports.updatebook=updatebook;
+module.exports.bookrange=bookrange;
+
+
+
+
+// module.exports.getBooksData= getBooksData
