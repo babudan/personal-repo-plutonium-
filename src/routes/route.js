@@ -11,7 +11,7 @@ router.post("/createnewAuthor" , authorController.createnewAuthor);
 
 //  router.get("/getAuthorsData", authorController.getAuthorsData)
 
-// router.post("/createBook", bookController.createBook  )
+router.post("/createBook", bookController.createBook  )
 
 router.post("/createnewbook" , bookController.createnewbook);
 
@@ -26,6 +26,7 @@ router.get("/updaterating",bookController.updaterating);
 // router.post("/createPublisher", publisherController.createPublisher);
 
 router.post("/createnewpublisher", publisherController.createnewpublisher)
+
 
 // router.get("/getBooksWithAuthorDetails", bookController.getBooksWithAuthorDetails)
 
