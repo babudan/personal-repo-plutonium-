@@ -12,24 +12,6 @@ const basicCode= async function(req, res) {
     res.send({ msg: "This is coming from controller (handler)"})
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const createUser= async function (req, res) {
     let data= req.body
     let savedData= await UserModel.create(data)
@@ -41,6 +23,13 @@ const getUsersData= async function (req, res) {
     res.send({msg: allUsers})
 }
 
+const code = async function(req,res,next){
+    let data  = req.param;
+    console.log(data);
+    next();
+}
+
 module.exports.createUser= createUser
 module.exports.getUsersData= getUsersData
 module.exports.basicCode= basicCode
+module.exports.code=code;
