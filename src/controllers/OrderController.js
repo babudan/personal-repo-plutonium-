@@ -5,7 +5,7 @@ const userModel= require("../models/userModel")
 
 const createorder = async function (req, res) {
     let user = req.body.userId;
-    let product = req.body.productId;
+    let product = greq.body.productId;
     // console.log(userfind);
     let userfind = await userModel.findById(user);
     // let all = (userfind._id).toString(); 

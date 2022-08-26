@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 // const UserModel= require("../models/userModel.js")
 const UserController= require("../controllers/userController")
-const BookController= require("../controllers/bookController")
+const Productcontroller= require("../controllers/productController")
+const Ordercontroller= require("../controllers/orderController")
 const commonMW = require ("../middlewares/commonMiddlewares")
 
 router.get("/test-me", function (req, res) {
@@ -12,12 +13,12 @@ router.get("/test-me", function (req, res) {
 
 
 
-router.post("/createBook", BookController.createBook  )
+router.post("/createProduct", Productcontroller.createProduct );
 
+router.post("/createorder", commonMW.midwar ,Ordercontroller.createorder )
 
+router.post("/createUser", commonMW.midwar , UserController.createUser)
 
-
-router.post("/createUser", UserController.createUser)
 // router.get("/getUsersData", UserController.getUsersData)
 
 
