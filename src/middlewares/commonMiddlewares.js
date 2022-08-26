@@ -19,25 +19,6 @@ const mid4= function ( req, res) {
     console.log("Hi I am a middleware named Mid4")
 }
 
-// const time1 = function(req,res){
-//     const date = moment().format("DD-MM-YYYY , hh:mm:ss");
-//     console.log(date);
-// }
-// const ipmid = function(req,res){
-// //     // var adress = ipadress.getClientIp(req);
-    //  let a = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || req.socket.remoteAddress
-//     // var ip = req.ip.split(':ffff:x.x.x.x').pop();
-//     // var ipInfo = getIP(req);
-//     //  console.log(ipInfo);
-//     // console.log(ip.address());
-//     console.log(a);
-// }
-
-// const routename  = function(req,res){
-//     var rou = req.path;
-//     console.log(rou);
-// }
-
 
 // module.exports.mid1= mid1
 // module.exports.mid2= mid2
