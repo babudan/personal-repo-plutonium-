@@ -34,14 +34,18 @@ const loginUser = async function (req, res) {
   let token = jwt.sign(
     {
       userId: user._id.toString(),
-      batch: "thorium",
-      organisation: "FunctionUp",
+      name: "arindam",
+      adress : "durgapur",
     },
-    "functionup-plutonium-very-very-secret-key"
+    "my-name-is-arindam"
   );
   res.setHeader("x-auth-token", token);
   res.send({ status: true, token: token });
 };
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MzA4OWUxM2JjZDBmOTg5MzM3MTAyYTQiLCJuYW1lIjoiYXJpbmRhbSIsImFkcmVzcyI6ImR1cmdhcHVyIiwiaWF0IjoxNjYxNTA5Nzg0fQ.w9SgN7TvlTONO8tJohpJKrK7nfAktBOFQ9e-PYZlnns
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+
+// eyJ1c2VySWQiOiI2MzA4OWUxM2JjZDBmOTg5MzM3MTAyYTQiLCJuYW1lIjoiYXJpbmRhbSIsImFkcmVzcyI6ImR1cmdhcHVyIiwiaWF0IjoxNjYxNTExOTg5fQ.mNJLUrfjX-vtePmq5NwYkynATEVm2UtkEMImtX-jj5g
 
 const getUserData = async function (req, res) {
   let token = req.headers["x-Auth-token"];
@@ -61,7 +65,7 @@ const getUserData = async function (req, res) {
   // Decoding requires the secret again. 
   // A token can only be decoded successfully if the same secret was used to create(sign) that token.
   // And because this token is only known to the server, it can be assumed that if a token is decoded at server then this token must have been issued by the same server in past.
-  let decodedToken = jwt.verify(token, "functionup-plutonium-very-very-secret-key");
+  let decodedToken = jwt.verify(token, "my-name-is-arindam");
   if (!decodedToken)
     return res.send({ status: false, msg: "token is invalid" });
 
