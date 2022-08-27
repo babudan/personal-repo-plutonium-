@@ -15,13 +15,6 @@ mongoose.connect("mongodb+srv://ArindamDan:Arindam12345@cluster0.nl5g5.mongodb.n
 .catch ( err => console.log(err) )
 
 
-// app.use (
-//     function (req, res, next) {
-//         console.log ("inside GLOBAL MW");
-//         next();
-//   }
-//   );
-
 
 app.use('/', route);
 

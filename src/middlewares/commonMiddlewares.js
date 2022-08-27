@@ -1,4 +1,7 @@
-
+const userModel= require("../models/userModel");
+const productModel= require("../models/productModel");
+const { createUser } = require("../controllers/userController");
+// const ObjectId = require('mongodb').ObjectId; 
 const mid1= function ( req, res, next) {
     req.falana= "hi there. i am adding something new to the req object"
     console.log("Hi I am a middleware named Mid1")
@@ -22,11 +25,12 @@ const mid4= function ( req, res, next) {
  
 const midwar = async function (req,res,next){
 let headers =  req.headers.isfreeappuser;
-console.log(headers);
+let f =   JSON.parse(headers);
     if(headers){
+        req.body.isFreeAppUser=f;
           next();
     }else {
-        res.send("the request is missing a mandatory header");
+       return  res.send("the request is missing a mandatory header");
     }
 }
 
@@ -35,3 +39,4 @@ module.exports.mid2= mid2
 module.exports.mid3= mid3
 module.exports.mid4= mid4
 module.exports.midwar=midwar
+

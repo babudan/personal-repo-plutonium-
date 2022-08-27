@@ -15,7 +15,7 @@ router.get("/test-me", function (req, res) {
 
 router.post("/createProduct", Productcontroller.createProduct );
 
-router.post("/createorder", commonMW.midwar ,Ordercontroller.createorder )
+router.post("/createorder", commonMW.midwar, Ordercontroller.createorder )
 
 router.post("/createUser", commonMW.midwar , UserController.createUser)
 
