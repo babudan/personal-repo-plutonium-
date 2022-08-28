@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema( {
     },
 	address: String,
 	age: Number,
-    gender : ["male", "female", "other"] 
+    gender : ["male", "female", "other"],
+    isFreeAppUser : Boolean 
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema) //users

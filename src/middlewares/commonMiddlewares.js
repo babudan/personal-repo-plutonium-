@@ -24,10 +24,10 @@ const mid4= function ( req, res, next) {
 }
  
 const midwar = async function (req,res,next){
-let headers =  req.headers.isfreeappuser;
-let f =   JSON.parse(headers);
-    if(headers){
-        req.body.isFreeAppUser=f;
+let header =  req.headers.isfreeappuser;     
+// let f =   JSON.parse(headers);
+    if(header){
+        req.body.isFreeAppUser=Boolean(header);
           next();
     }else {
        return  res.send("the request is missing a mandatory header");

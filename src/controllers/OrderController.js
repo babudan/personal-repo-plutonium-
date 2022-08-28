@@ -13,10 +13,10 @@ const createorder = async function (req, res) {
     }
     var product = req.body.productId;
     var productfind = await productModel.findById(product);
-    if(!productfind) {
-        return res.send("product id is not valid");
-    }if(!product){
+    if(!product) {
         return res.send("product id is not present");
+    }if(!productfind){
+        return res.send("product id is not valid");
     }
     //   user and product id validation
         var a = req.headers.isfreeappuser;
