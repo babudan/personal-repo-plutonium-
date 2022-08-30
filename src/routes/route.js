@@ -16,7 +16,7 @@ router.get("/users/:userId",midcontroller.midwar ,userController.getUserData);
 
 router.put("/users/:userId",midcontroller.midwar, userController.updateUser);
 
-// router.delete("/users/:userId",midcontroller.midwar, userController.deleteUser);
+router.delete("/users/:userId",midcontroller.midwar, userController.deleteUser);
 
 
 module.exports = router;
